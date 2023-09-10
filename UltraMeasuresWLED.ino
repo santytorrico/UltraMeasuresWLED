@@ -1,8 +1,8 @@
 #define ECHO_PIN 4
 #define TRIG_PIN 2
-#define LED1_PIN 33
-#define LED2_PIN 32
-#define LED3_PIN 26
+#define REDLED_PIN 33
+#define GREENLED_PIN 32
+#define YELLOWLED_PIN 26
 
 const int DISTANCE_THRESHOLD_SHORT = 10;
 const int DISTANCE_THRESHOLD_MEDIUM = 20;
@@ -14,9 +14,9 @@ void setup() {
   Serial.begin(115200);
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
-  pinMode(LED1_PIN, OUTPUT);
-  pinMode(LED2_PIN, OUTPUT);
-  pinMode(LED3_PIN, OUTPUT);
+  pinMode(REDLED_PIN, OUTPUT);
+  pinMode(GREENLED_PIN, OUTPUT);
+  pinMode(YELLOWLED_PIN, OUTPUT);
 }
 
 void loop() {
@@ -24,14 +24,14 @@ void loop() {
 
   if (distance >= 0 && distance <= 400) {
     if (distance < DISTANCE_THRESHOLD_SHORT) {
-      turnOnLed(LED1_PIN);
-      turnOnLed(LED2_PIN);
-      turnOnLed(LED3_PIN);
+      turnOnLed(REDLED_PIN);
+      turnOnLed(GREENLED _PIN);
+      turnOnLed(YELLOWLED_PIN);
     } else if (distance < DISTANCE_THRESHOLD_MEDIUM) {
-      turnOnLed(LED1_PIN);
-      turnOnLed(LED2_PIN);
+      turnOnLed(REDLED_PIN);
+      turnOnLed(GREENLED_PIN);
     } else if (distance < DISTANCE_THRESHOLD_LONG) {
-      turnOnLed(LED1_PIN);
+      turnOnLed(REDLED_PIN);
     } else {
       turnOffAllLeds();
     }
@@ -68,7 +68,7 @@ void turnOffLed(int pin) {
 }
 
 void turnOffAllLeds() {
-  turnOffLed(LED1_PIN);
-  turnOffLed(LED2_PIN);
-  turnOffLed(LED3_PIN);
+  turnOffLed(REDLED_PIN);
+  turnOffLed(GREENLED_PIN);
+  turnOffLed(YELLOWLED_PIN);
 }
